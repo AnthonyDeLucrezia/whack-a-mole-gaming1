@@ -1,0 +1,12 @@
+.wam-mole-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    img{
+        width: 80%;
+        height: auto;
+    }
+}
