@@ -3,7 +3,7 @@ import WAMMole from "./../../assets/WAM_Mole.png";
 import WAMHole from "./../../assets/WAM_Hole.png";
 import "./Mole.scss";
 
-interface MoleProps {
+export interface MoleProps {
   id: string | number;
   isHidden: boolean;
   name?: string;
