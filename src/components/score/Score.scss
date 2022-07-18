@@ -1,0 +1,14 @@
+@import "./../../styles/variables.scss";
+
+.wam-score-container{
+    text-align: center;
+    width: fit-content;
+    .wam-score-label{
+        color : $secondary-text;
+        text-shadow: 0px 0px 3px $primary-shadow;
+    }
+    .wam-score-points{
+        color : $primary-text;
+        text-shadow: 0px 0px 3px $primary-shadow;
+    }
+}
