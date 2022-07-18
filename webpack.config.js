@@ -10,18 +10,29 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        resolve: {
-          extensions: ['.ts', '.tsx', '.js', '.json'],
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader"
+            }
         },
-        use: 'ts-loader',
-      },
-      {
-        test: /\.css$/,
-        use: ['css-loader'],
-      },
+        {
+            test: /\.(ts|tsx)$/,
+            exclude: /node_modules/,
+            resolve: {
+            extensions: ['.ts', '.tsx', '.js', '.json'],
+            },
+            use: 'ts-loader',
+        },
+        { 
+            test: /\.scss$/, 
+            use: [ "style-loader", "css-loader", "sass-loader" ] 
+        },
+        {
+            test: /\.css$/,
+            use: ['css-loader'],
+        },
     ]
   },
   resolve: {
@@ -29,7 +40,7 @@ module.exports = {
 }, 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'public/index.html',
     }),
     new CleanWebpackPlugin()
   ],
