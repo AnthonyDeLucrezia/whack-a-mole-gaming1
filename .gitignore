@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# Build
+build/Release
+
+# Dependency directories
+node_modules/
+
+# Distribution directories
+dist/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
