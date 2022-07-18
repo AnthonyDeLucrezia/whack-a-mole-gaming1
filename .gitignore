@@ -20,8 +20,4 @@ dist/
 # Optional eslint cache
 .eslintcache
 
-#storybook
-*.DS_Store
-node_modules
-storybook-static
 
