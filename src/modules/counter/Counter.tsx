@@ -30,7 +30,6 @@ export function Counter() {
           -
         </button>
       </div>
-      {/* omit additional rendering output here */}
     </div>
   );
 }
