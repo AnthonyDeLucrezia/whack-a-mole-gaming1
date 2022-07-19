@@ -3,6 +3,9 @@
 .wam-score-container{
     text-align: center;
     width: fit-content;
+    position:absolute;
+    left: 50px;
+    top:10px;
     .wam-score-label{
         color : $secondary-text;
         text-shadow: 0px 0px 3px $primary-shadow;
