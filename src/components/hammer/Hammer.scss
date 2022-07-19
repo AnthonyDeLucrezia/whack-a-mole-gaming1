@@ -1,0 +1,11 @@
+.wam-hammer-container{
+    img{
+        width: 100px;
+        height: auto;
+        position:absolute;
+        pointer-events: none;
+    }
+    .wham-hamer-animation{
+        transform: rotate(-45deg);
+    }
+}
