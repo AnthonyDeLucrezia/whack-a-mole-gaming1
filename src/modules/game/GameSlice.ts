@@ -23,7 +23,6 @@ export const gameSlice = createSlice({
     stop: state => {
       state.status = "FINISHED";
       state.gridData = [];
-      console.log("FINISHED");
     },
     setGridData: (state, action) => {
       state.gridData = action.payload;
