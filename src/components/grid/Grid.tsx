@@ -7,7 +7,7 @@ import { Hammer } from "../hammer/Hammer";
 
 interface GridProps {
   gridData: MoleProps[][];
-  onMoleClick: (id: string) => void;
+  onMoleClick: () => void;
 }
 
 export const Grid = (props: GridProps) => {

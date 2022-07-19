@@ -10,7 +10,8 @@ export const getRandomMoleId = (nbrOfRows : number, nbrOfColumns:number): string
     return  `${randomRow}-${randomCol}`;
   };
 
-export const generateMoles = (nbrOfRows : number, nbrOfColumns:number, activeMoleId?:string): MoleProps[][] => {
+export const generateMoles = (nbrOfRows : number, nbrOfColumns:number): MoleProps[][] => {
+  const activeMoleId = getRandomMoleId(nbrOfRows, nbrOfColumns);
     const arrToReturn: MoleProps[][] = [];
     for (let row = 0; row < nbrOfRows ; row++) {
       const arrRow : MoleProps[] = [];

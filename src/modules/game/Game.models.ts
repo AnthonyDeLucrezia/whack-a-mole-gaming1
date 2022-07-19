@@ -1,0 +1,1 @@
+export type GameStatus = "STARTED" | "NOT STARTED" | "FINISHED"
