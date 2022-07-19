@@ -49,7 +49,7 @@ export const startGameAsync = ()  =>  (dispatch: (arg0: { payload: undefined; ty
   setTimeout(() => {
     clearInterval(intervalId);
     dispatch(stop());
-  }, 10000)
+  }, 120000)
 }
 
 export const { incrementScore, resetScore, start, stop, setGridData} = gameSlice.actions
