@@ -1,15 +1,33 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { AnyAction, createSlice } from '@reduxjs/toolkit'
+import { MoleProps } from '../../components/mole/Mole';
+import { generateMoles, getRandomMoleId } from '../../utils/utils';
+import { GameStatus } from './Game.models';
 
  interface GameSliceState {
     score:number;
+    status: GameStatus;
+    gridData:MoleProps[][];
 }
 
-const initialState = { score: 0 } as GameSliceState
+const initialState = { score: 0,
+   status:"NOT STARTED",
+   gridData :[] } as GameSliceState
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState : initialState,
   reducers: {
+    start: state => {
+      state.status = "STARTED";
+    },
+    stop: state => {
+      state.status = "FINISHED";
+      state.gridData = [];
+      console.log("FINISHED");
+    },
+    setGridData: (state, action) => {
+      state.gridData = action.payload;
+    },
     incrementScore: state => {
       state.score += 10;
     },
@@ -19,9 +37,25 @@ export const gameSlice = createSlice({
   }
 })
 
-export const { incrementScore, resetScore } = gameSlice.actions
+//async function (thunk)
+export const startGameAsync = ()  =>  (dispatch: (arg0: { payload: undefined; type: string; }) => void) => {
+  const numberOfRow = 3;
+  const numberOfCols = 4;
+  dispatch(start())
+  const intervalId = setInterval(() => {
+    const grid = generateMoles(numberOfRow, numberOfCols);
+    dispatch(setGridData(grid));
+  }, 1000);
+  setTimeout(() => {
+    clearInterval(intervalId);
+    dispatch(stop());
+  }, 10000)
+}
+
+export const { incrementScore, resetScore, start, stop, setGridData} = gameSlice.actions
 
 export default gameSlice.reducer
 
 //selectors
-export const selectScore = (state: { game: { score: any; }; }) => state.game.score
+export const selectScore = (state: { game: GameSliceState }) => state.game.score
+export const selectActiveMoleId = (state: { game: GameSliceState }) => state.game.gridData

@@ -4,7 +4,7 @@ import "./Grid.scss";
 
 interface GridLineProps {
   moles: MoleProps[];
-  onMoleClick: (id: string) => void;
+  onMoleClick: () => void;
 }
 
 export const GridLine = (props: GridLineProps) => {
