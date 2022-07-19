@@ -1,6 +1,5 @@
-import { List as MuiList, ListItemText } from "@mui/material";
+import { List as MuiList } from "@mui/material";
 import React from "react";
-import "./Input.scss";
 import { ListItem, ListItemProps } from "./ListItem";
 
 export interface ListProps {
