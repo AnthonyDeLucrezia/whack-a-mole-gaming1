@@ -2,7 +2,6 @@ import React from "react";
 import "./Score.scss";
 
 interface ScoreProps {
-  size?: "small" | "medium" | "large";
   scorePoints: number;
 }
 
