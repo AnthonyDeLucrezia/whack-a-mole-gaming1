@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof Mole> = (args) => <Mole {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   isHidden: false,
-  name: "Thierry",
+  id: "5-10",
 };
