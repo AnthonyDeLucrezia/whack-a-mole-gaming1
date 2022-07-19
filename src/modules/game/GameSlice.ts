@@ -58,4 +58,5 @@ export default gameSlice.reducer
 
 //selectors
 export const selectScore = (state: { game: GameSliceState }) => state.game.score
-export const selectActiveMoleId = (state: { game: GameSliceState }) => state.game.gridData
+export const selectDataGrid = (state: { game: GameSliceState }) => state.game.gridData
+export const selectStatus = (state: { game: GameSliceState }) => state.game.status
