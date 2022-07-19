@@ -16,7 +16,6 @@ export const Game = () => {
     useState<string | undefined>(undefined);
 
   useEffect(() => {
-    console.log(score);
     const grid = generateMoles(numberOfRow, numberOfCols, activeMoleId);
     setGridData(grid);
   }, [activeMoleId]);

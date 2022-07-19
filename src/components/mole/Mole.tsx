@@ -23,15 +23,14 @@ export const Mole = (props: MoleProps) => {
   };
 
   return (
-    <div className="wam-mole-container">
+    <div
+      className="wam-mole-container"
+      onClick={onClick ? () => onVisibilityChange(id) : undefined}
+    >
       {!isVisible ? (
         <img src={WAMHole} aria-label={"wam-hole"} />
       ) : (
-        <img
-          src={WAMMole}
-          aria-label={"wam-mole"}
-          onClick={onClick ? () => onVisibilityChange(id) : undefined}
-        />
+        <img src={WAMMole} aria-label={"wam-mole"} />
       )}
     </div>
   );
