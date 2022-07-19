@@ -4,19 +4,23 @@ import WAMHole from "./../../assets/WAM_Hole.png";
 import "./Mole.scss";
 
 export interface MoleProps {
-  id: string | number;
+  id: string;
   isHidden: boolean;
-  name?: string;
+  onClick?: (id: string) => void;
 }
 
 export const Mole = (props: MoleProps) => {
-  const { isHidden } = props;
+  const { isHidden, onClick, id } = props;
   return (
     <div className="wam-mole-container">
       {isHidden ? (
         <img src={WAMHole} aria-label={"wam-hole"} />
       ) : (
-        <img src={WAMMole} aria-label={"wam-mole"} />
+        <img
+          src={WAMMole}
+          aria-label={"wam-mole"}
+          onClick={onClick ? () => onClick(id) : undefined}
+        />
       )}
     </div>
   );

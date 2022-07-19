@@ -5,18 +5,19 @@ import { GridLine } from "./GridLine";
 import "./Grid.scss";
 
 interface GridProps {
-  molesArr: MoleProps[][];
+  gridData: MoleProps[][];
+  onMoleClick: (id: string) => void;
 }
 
 export const Grid = (props: GridProps) => {
-  const { molesArr } = props;
+  const { gridData, onMoleClick } = props;
   return (
     <div
       className="wam-grid-container"
       style={{ backgroundImage: `url(${WAMBg})` }}
     >
-      {molesArr.map((row) => (
-        <GridLine moles={row} />
+      {gridData.map((row) => (
+        <GridLine moles={row} onMoleClick={onMoleClick} />
       ))}
     </div>
   );

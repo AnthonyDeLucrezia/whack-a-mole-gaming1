@@ -1,7 +1,7 @@
 import React from "react";
-import { Score } from "../components/score/Score";
-import { Counter } from "../modules/counter/Counter";
+import { Game } from "../modules/game/Game";
+import "./../styles/global.scss";
 
 export const App = () => {
-  return <Score scorePoints={645665} />;
+  return <Game />;
 };

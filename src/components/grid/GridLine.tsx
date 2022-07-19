@@ -4,15 +4,20 @@ import "./Grid.scss";
 
 interface GridLineProps {
   moles: MoleProps[];
+  onMoleClick: (id: string) => void;
 }
 
 export const GridLine = (props: GridLineProps) => {
-  const { moles } = props;
+  const { moles, onMoleClick } = props;
   return (
     <div className="wam-grid-line">
       {moles.map((mole) => (
         <div className="wam-grid-item">
-          <Mole isHidden={mole.isHidden} id={mole.id} />
+          <Mole
+            isHidden={mole.isHidden}
+            id={mole.id}
+            onClick={mole.isHidden ? undefined : onMoleClick}
+          />
         </div>
       ))}
     </div>
