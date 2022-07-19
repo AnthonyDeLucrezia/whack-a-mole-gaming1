@@ -49,7 +49,7 @@ export const startGameAsync = ()  =>  (dispatch: (arg0: { payload: undefined; ty
   setTimeout(() => {
     clearInterval(intervalId);
     dispatch(stop());
-  }, 10000)
+  }, 120000)
 }
 
 export const { incrementScore, resetScore, start, stop, setGridData} = gameSlice.actions
@@ -58,4 +58,5 @@ export default gameSlice.reducer
 
 //selectors
 export const selectScore = (state: { game: GameSliceState }) => state.game.score
-export const selectActiveMoleId = (state: { game: GameSliceState }) => state.game.gridData
+export const selectDataGrid = (state: { game: GameSliceState }) => state.game.gridData
+export const selectStatus = (state: { game: GameSliceState }) => state.game.status
