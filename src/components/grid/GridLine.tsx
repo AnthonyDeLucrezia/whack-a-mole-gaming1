@@ -11,8 +11,8 @@ export const GridLine = (props: GridLineProps) => {
   const { moles, onMoleClick } = props;
   return (
     <div className="wam-grid-line">
-      {moles.map((mole) => (
-        <div className="wam-grid-item">
+      {moles.map((mole, index) => (
+        <div className="wam-grid-item" key={`mole-${index + 1}`}>
           <Mole
             isHidden={mole.isHidden}
             id={mole.id}

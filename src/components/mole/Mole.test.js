@@ -1,4 +1,4 @@
-import { render, screen} from '@testing-library/react'
+import { render, screen, fireEvent} from '@testing-library/react'
 import React from 'react';
 import {Mole} from "./Mole"
 
@@ -17,4 +17,11 @@ describe('Mole tests', () => {
         const hole = screen.getByLabelText("wam-hole");
         expect(hole).toBeInTheDocument();
     });
+    it('should change visibilty', () => {
+        render(<Mole onClick={() => console.log("change visibility")}/>);
+            const mole = screen.getByLabelText("wam-mole");
+            fireEvent.click(mole);
+            const hole = screen.getByLabelText("wam-hole");
+            expect(hole).toBeInTheDocument();
+        });
 });
