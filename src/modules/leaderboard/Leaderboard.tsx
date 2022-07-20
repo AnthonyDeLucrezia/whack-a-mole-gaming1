@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from "../../components/button/Button";
 import Typography from "@mui/material/Typography";
 import { List } from "../../components/list/List";
-import { selectScore, startGameAsync } from "../game/GameSlice";
+import { restart, selectScore } from "../game/GameSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectPlayerName } from "../player/PlayerSlice";
 import "./Leaderboard.scss";
@@ -29,7 +29,7 @@ export const Leaderboard = () => {
   }, [name, score]);
 
   const onRestart = () => {
-    dispatch(startGameAsync());
+    dispatch(restart());
   };
   return (
     <div className="wam-leaderboard-container">
