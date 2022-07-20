@@ -5,6 +5,7 @@ import { Score } from "../../components/score/Score";
 import { incrementScore, selectScore, selectDataGrid } from "./GameSlice";
 import "./Game.scss";
 import { selectPlayerName } from "../player/PlayerSlice";
+import { Name } from "../../components/name/Name";
 
 export const Game = () => {
   const score = useAppSelector(selectScore);
@@ -18,8 +19,10 @@ export const Game = () => {
 
   return (
     <div className="wam-game">
-      <Score scorePoints={score} />
-      <h3 className="wam-game-player-name">{name}</h3>
+      <div className="wam-game-header">
+        <Score scorePoints={score} />
+        <Name playerName={name} />
+      </div>
       <Grid gridData={dataGrid} onMoleClick={onMoleClick} />
     </div>
   );
