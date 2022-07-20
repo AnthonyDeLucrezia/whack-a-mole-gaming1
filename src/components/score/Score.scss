@@ -1,0 +1,16 @@
+@import "./../../styles/colors.scss";
+
+.wam-score-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    .wam-score-label{
+        color : $tertiary;
+
+    }
+    .wam-score-points{
+        margin-left: 15px;
+        color : $quaternary;
+    }
+}
