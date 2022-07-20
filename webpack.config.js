@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   mode:  'development',
@@ -49,10 +50,15 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
 }, 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env':{
+        'API_URL': JSON.stringify('http://localhost:8080/api')
+      }
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ],
   
   devServer: {

@@ -1,12 +1,12 @@
-import { Player } from "../modules/player/Player.models";
+import { Player } from "../models/app.models";
+
 
 export const fetchPlayersAsync = async () => {
     try{
-      const response = await fetch(`http://localhost:8080/api/leaderboard`);
+      const response = await fetch(`${process.env.API_URL}/leaderboard`);
       if(response.ok){
           return await response.json();
       }
-      
     }catch(err){
       console.error(err);
     }
@@ -14,7 +14,7 @@ export const fetchPlayersAsync = async () => {
 
   export const createNewPlayersAsync = async (player:Player) => {
     try{
-        const response = await fetch('http://localhost:8080/api/players', {
+        const response = await fetch(`${process.env.API_URL}/players`, {
             method: 'POST',
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -24,7 +24,6 @@ export const fetchPlayersAsync = async () => {
       if(response.ok){
           return await response.json();
       }
-      
     }catch(err){
       console.error(err);
     }

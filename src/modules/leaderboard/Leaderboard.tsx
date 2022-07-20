@@ -10,7 +10,7 @@ import {
   addPlayerToLeaderboardAsync,
   selectLeaderboard,
 } from "./LeaderboardSlice";
-import { Player } from "../player/Player.models";
+import { Player } from "../../models/app.models";
 
 export const Leaderboard = () => {
   const dispatch = useAppDispatch();

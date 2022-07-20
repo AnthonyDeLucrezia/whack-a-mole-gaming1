@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
+import { GameStatus } from "../models/app.models";
 import { Game } from "../modules/game/Game";
 import { selectStatus } from "../modules/game/GameSlice";
 import { Leaderboard } from "../modules/leaderboard/Leaderboard";
@@ -14,9 +15,9 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="wam-app-container">
-        {gameStatus === "NOT STARTED" && <Player />}
-        {gameStatus === "STARTED" && <Game />}
-        {gameStatus === "FINISHED" && <Leaderboard />}
+        {gameStatus === GameStatus.NotStarted && <Player />}
+        {gameStatus === GameStatus.Started && <Game />}
+        {gameStatus === GameStatus.Finished && <Leaderboard />}
       </div>
     </ThemeProvider>
   );

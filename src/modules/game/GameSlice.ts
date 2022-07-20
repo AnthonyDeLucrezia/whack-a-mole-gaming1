@@ -1,7 +1,7 @@
 import {  createSlice } from '@reduxjs/toolkit'
 import { MoleProps } from '../../components/mole/Mole';
+import { GameStatus } from '../../models/app.models';
 import { generateMoles } from '../../utils/utils';
-import { GameStatus } from './Game.models';
 
  interface GameSliceState {
     score:number;
@@ -10,7 +10,7 @@ import { GameStatus } from './Game.models';
 }
 
 const initialState = { score: 0,
-   status:"NOT STARTED",
+   status:GameStatus.NotStarted,
    gridData :[] } as GameSliceState
 
 export const gameSlice = createSlice({
@@ -18,14 +18,14 @@ export const gameSlice = createSlice({
   initialState : initialState,
   reducers: {
     start: state => {
-      state.status = "STARTED";
+      state.status = GameStatus.Started;
     },
     stop: state => {
-      state.status = "FINISHED";
+      state.status = GameStatus.Finished;
       state.gridData = [];
     },
     restart: state => {
-      state.status = "NOT STARTED";
+      state.status = GameStatus.NotStarted;
       state.gridData = [];
       state.score = 0;
     },

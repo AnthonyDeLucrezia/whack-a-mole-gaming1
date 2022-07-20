@@ -1,3 +1,5 @@
+@import "./../../styles/colors.scss";
+
 .wam-score-container{
     text-align: center;
     width: fit-content;
@@ -5,10 +7,10 @@
     left: 50px;
     top:10px;
     .wam-score-label{
-        color : red;
+        color : $tertiary;
 
     }
     .wam-score-points{
-        color : black;
+        color : $quaternary;
     }
 }
