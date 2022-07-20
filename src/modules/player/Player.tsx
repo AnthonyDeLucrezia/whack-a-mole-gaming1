@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Input } from "../../components/input/Input";
 import { startGameAsync } from "./../game/GameSlice";
 import "./Player.scss";
 import { Button } from "../../components/button/Button";
 import Typography from "@mui/material/Typography";
-import { savePlayerName } from "./PlayerSlice";
+import { savePlayerName, selectPlayerName } from "./PlayerSlice";
 
 export const Player = () => {
   const dispatch = useAppDispatch();
-  const [playerName, setPlayerName] = useState("");
+  const name = useAppSelector(selectPlayerName);
+  const [playerName, setPlayerName] = useState(name || "");
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPlayerName(event.target.value);

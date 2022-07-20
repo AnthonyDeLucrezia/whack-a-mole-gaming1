@@ -24,6 +24,11 @@ export const gameSlice = createSlice({
       state.status = "FINISHED";
       state.gridData = [];
     },
+    restart: state => {
+      state.status = "NOT STARTED";
+      state.gridData = [];
+      state.score = 0;
+    },
     setGridData: (state, action) => {
       state.gridData = action.payload;
     },
@@ -52,7 +57,7 @@ export const startGameAsync = ()  =>  (dispatch: (arg0: { payload: undefined; ty
   }, 15000)
 }
 
-export const { incrementScore, resetScore, start, stop, setGridData} = gameSlice.actions
+export const { incrementScore, resetScore, start, stop, setGridData, restart} = gameSlice.actions
 
 export default gameSlice.reducer
 
