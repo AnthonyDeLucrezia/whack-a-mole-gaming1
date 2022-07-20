@@ -48,6 +48,14 @@ To run the tests, use the following command at the root of this project :
 npm run test
 ```
 
+## Test
+
+To run the storybook, use the following command :
+
+```
+npm run storybook
+```
+
 ## Usage
 
 1. Once the application is running, enter your name and click on start to launch the game
