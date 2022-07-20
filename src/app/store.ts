@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import gameReducer from '../modules/game/GameSlice'
-import playerReducer from '../modules/player/PlayerSlice'
-import leaderboardReducer from '../modules/leaderboard/LeaderboardSlice'
+import gameReducer from '../features/game/GameSlice'
+import playerReducer from '../features/player/PlayerSlice'
+import leaderboardReducer from '../features/leaderboard/LeaderboardSlice'
 
 const store = configureStore({
   reducer: {

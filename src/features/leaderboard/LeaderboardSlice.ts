@@ -2,7 +2,7 @@ import {  createSlice } from '@reduxjs/toolkit'
 import { createNewPlayersAsync, fetchPlayersAsync } from '../../api';
 import { Player } from '../../models/app.models';
 
- interface LeaderboardSliceState {
+ export interface LeaderboardSliceState {
     players:Player[];
 }
 

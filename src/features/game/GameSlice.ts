@@ -3,7 +3,7 @@ import { MoleProps } from '../../components/mole/Mole';
 import { GameStatus } from '../../models/app.models';
 import { generateMoles } from '../../utils/utils';
 
- interface GameSliceState {
+ export interface GameSliceState {
     score:number;
     status: GameStatus;
     gridData:MoleProps[][];
