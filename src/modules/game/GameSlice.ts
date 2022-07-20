@@ -1,6 +1,6 @@
-import { AnyAction, createSlice } from '@reduxjs/toolkit'
+import {  createSlice } from '@reduxjs/toolkit'
 import { MoleProps } from '../../components/mole/Mole';
-import { generateMoles, getRandomMoleId } from '../../utils/utils';
+import { generateMoles } from '../../utils/utils';
 import { GameStatus } from './Game.models';
 
  interface GameSliceState {
@@ -23,7 +23,6 @@ export const gameSlice = createSlice({
     stop: state => {
       state.status = "FINISHED";
       state.gridData = [];
-      console.log("FINISHED");
     },
     setGridData: (state, action) => {
       state.gridData = action.payload;
@@ -41,6 +40,7 @@ export const gameSlice = createSlice({
 export const startGameAsync = ()  =>  (dispatch: (arg0: { payload: undefined; type: string; }) => void) => {
   const numberOfRow = 3;
   const numberOfCols = 4;
+  dispatch(resetScore());
   dispatch(start())
   const intervalId = setInterval(() => {
     const grid = generateMoles(numberOfRow, numberOfCols);
@@ -49,7 +49,7 @@ export const startGameAsync = ()  =>  (dispatch: (arg0: { payload: undefined; ty
   setTimeout(() => {
     clearInterval(intervalId);
     dispatch(stop());
-  }, 120000)
+  }, 15000)
 }
 
 export const { incrementScore, resetScore, start, stop, setGridData} = gameSlice.actions

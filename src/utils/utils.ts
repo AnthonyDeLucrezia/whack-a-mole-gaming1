@@ -1,4 +1,5 @@
 import { MoleProps } from "../components/mole/Mole";
+import { Player } from "../modules/player/Player.models";
 
 export const genrateRandomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + min; 
@@ -25,4 +26,17 @@ export const generateMoles = (nbrOfRows : number, nbrOfColumns:number): MoleProp
     }
     return arrToReturn;
   };
+
+  
+export const sortPlayer = (player1: Player, player2:Player): number => {
+  if (player1.score > player2.score) {
+      return 1;
+  }
+
+  if (player1.score < player2.score) {
+      return -1;
+  }
+
+  return 0;
+}
 
