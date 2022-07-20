@@ -1,35 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "../../components/button/Button";
 import Typography from "@mui/material/Typography";
 import { List } from "../../components/list/List";
-import { ListItemProps } from "../../components/list/ListItem";
 import { selectScore, startGameAsync } from "../game/GameSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectPlayerName } from "../player/PlayerSlice";
 import "./Leaderboard.scss";
+import {
+  addPlayerToLeaderboardAsync,
+  selectLeaderboard,
+} from "./LeaderboardSlice";
 import { Player } from "../player/Player.models";
-import { sortPlayer } from "../../utils/utils";
 
 export const Leaderboard = () => {
   const dispatch = useAppDispatch();
   const score = useAppSelector(selectScore);
   const name = useAppSelector(selectPlayerName);
+  const players = useAppSelector(selectLeaderboard);
 
-  const players: Player[] = [];
-
-  players.push({
-    id: `${1111111}`,
-    name: name,
-    score: score,
-  });
-
-  for (let cpt = 0; cpt < 10; cpt++) {
-    players.push({
-      id: `${cpt}`,
-      name: `player-${cpt}`,
-      score: 15 * cpt,
-    });
-  }
+  useEffect(() => {
+    if (name && score) {
+      const currentPlayer: Player = {
+        name: name,
+        score: score,
+      };
+      dispatch(addPlayerToLeaderboardAsync(currentPlayer));
+    }
+  }, [name, score]);
 
   const onRestart = () => {
     dispatch(startGameAsync());
@@ -39,13 +36,14 @@ export const Leaderboard = () => {
       <Typography variant="h4">Leaderboard</Typography>
       <Typography variant="h6">Your score : {score}</Typography>
       <List
-        items={players
-          .sort(sortPlayer)
-          .slice(0, 10)
-          .map((x) => ({
-            primaryText: x.name,
-            secondaryText: x.score.toString(),
-          }))}
+        items={
+          players && players.length > 9
+            ? players.map((x) => ({
+                primaryText: x.name,
+                secondaryText: x.score.toString(),
+              }))
+            : []
+        }
       />
       <Button label="ReStart" onClick={onRestart} />
     </div>
