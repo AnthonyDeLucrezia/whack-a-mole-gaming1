@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Input } from "./Input";
+import { InputText } from "./InputText";
 
 export default {
-  title: "Game/Input",
-  component: Input,
-} as ComponentMeta<typeof Input>;
+  title: "Game/InputText",
+  component: InputText,
+} as ComponentMeta<typeof InputText>;
 
-const Template: ComponentStory<typeof Input> = (args) => {
+const Template: ComponentStory<typeof InputText> = (args) => {
   const [value, setValue] = useState("");
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof Input> = (args) => {
   };
 
   return (
-    <Input
+    <InputText
       label="Enter somthing"
       id="input-id"
       onChange={onInputChange}

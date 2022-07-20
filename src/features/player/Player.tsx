@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { Input } from "../../components/input/Input";
+import { InputText } from "../../components/input/InputText";
 import { startGameAsync } from "./../game/GameSlice";
 import "./Player.scss";
 import { Button } from "../../components/button/Button";
@@ -25,7 +25,7 @@ export const Player = () => {
     <div className="wam-player-name-container">
       <Typography variant="h4">Whack a mole Game</Typography>
       <Typography variant="h6">Enter your name to start</Typography>
-      <Input
+      <InputText
         id="input-player-name"
         label="Your name"
         value={playerName}

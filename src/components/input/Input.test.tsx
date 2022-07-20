@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { Input } from "./Input";
+import { InputText } from "./InputText";
 
 const onInputChange = () => console.log("updated !");
 
 describe("Input tests", () => {
   it("should render an input", () => {
     render(
-      <Input
+      <InputText
         label="Enter somthing"
         id="input-id"
         onChange={onInputChange}
@@ -21,7 +21,7 @@ describe("Input tests", () => {
 
   it("should render input with id : input-id", () => {
     render(
-      <Input
+      <InputText
         label="Enter somthing"
         id="input-id"
         onChange={onInputChange}
@@ -35,7 +35,7 @@ describe("Input tests", () => {
 
   it("should render input with value", () => {
     render(
-      <Input
+      <InputText
         label="Enter somthing"
         id="input-id"
         onChange={onInputChange}
