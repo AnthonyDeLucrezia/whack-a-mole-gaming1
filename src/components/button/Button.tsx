@@ -1,6 +1,5 @@
 import { Button as MuiButton } from "@mui/material";
 import React from "react";
-import "./Button.scss";
 
 export interface ButtonProps {
   label: string;
@@ -15,7 +14,7 @@ export const Button = (props: ButtonProps) => {
       variant="contained"
       onClick={onClick}
       disabled={disabled}
-      className="wam-button"
+      sx={{ padding: "15px 25px" }}
     >
       {label}
     </MuiButton>

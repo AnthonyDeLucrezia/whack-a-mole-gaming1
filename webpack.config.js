@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   mode:  'development',
@@ -10,6 +11,20 @@ module.exports = {
   },
   module: {
     rules: [
+        {
+          test: /\.(ts|tsx)$/,
+          enforce: 'pre',
+          use: [
+            {
+              options: {
+                eslintPath: require.resolve('eslint'),
+      
+              },
+              loader: require.resolve('eslint-loader'),
+            },
+          ],
+          exclude: /node_modules/,
+        },
         {
             test: /\.js$/,
             exclude: /node_modules/,
@@ -49,10 +64,15 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
 }, 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env':{
+        'API_URL': JSON.stringify('http://localhost:8080/api')
+      }
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ],
   
   devServer: {

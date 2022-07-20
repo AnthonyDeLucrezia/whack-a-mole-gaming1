@@ -33,7 +33,7 @@ export const Hammer = (props: HammerProps) => {
   }, []);
 
   return (
-    <div className="wam-hammer-container">
+    <div className="wam-hammer-container" key="wam-hammer">
       <img
         src={WAHammer}
         aria-label={"wam-hammer"}

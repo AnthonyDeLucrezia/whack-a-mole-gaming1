@@ -1,6 +1,6 @@
 import {  createSlice } from '@reduxjs/toolkit'
 
- interface PlayerSliceState {
+export interface PlayerSliceState {
     name:string;
 }
 

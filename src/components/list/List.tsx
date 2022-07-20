@@ -9,12 +9,13 @@ export interface ListProps {
 export const List = (props: ListProps) => {
   const { items } = props;
   return (
-    <MuiList sx={{ width: "100%" }}>
-      {items.map((x) => (
-        <React.Fragment>
+    <MuiList sx={{ width: "100%" }} aria-label="wam-list">
+      {items.map((x, index) => (
+        <React.Fragment key={index.toString()}>
           <ListItem
             primaryText={x.primaryText}
             secondaryText={x.secondaryText}
+            key={index.toString()}
           />
           <Divider />
         </React.Fragment>

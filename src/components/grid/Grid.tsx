@@ -15,7 +15,7 @@ export const Grid = (props: GridProps) => {
 
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (event: any) => {
+  const handleMouseMove = (event: { pageX: number; pageY: number }) => {
     setCoords({
       x: event.pageX - 50,
       y: event.pageY - 50,
@@ -25,12 +25,17 @@ export const Grid = (props: GridProps) => {
   return (
     <div
       className="wam-grid-container"
+      aria-label="wam-grid"
       style={{ backgroundImage: `url(${WAMBg})` }}
       onMouseMove={handleMouseMove}
     >
       <Hammer posX={coords.x} posY={coords.y} />
-      {gridData.map((row) => (
-        <GridLine moles={row} onMoleClick={onMoleClick} />
+      {gridData.map((row, index) => (
+        <GridLine
+          moles={row}
+          onMoleClick={onMoleClick}
+          key={`row${index + 1}`}
+        />
       ))}
     </div>
   );

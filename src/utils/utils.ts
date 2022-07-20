@@ -1,5 +1,4 @@
 import { MoleProps } from "../components/mole/Mole";
-import { Player } from "../modules/player/Player.models";
 
 export const genrateRandomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) + min; 

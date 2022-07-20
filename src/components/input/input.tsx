@@ -1,6 +1,5 @@
 import { TextField } from "@mui/material";
 import React from "react";
-import "./Input.scss";
 
 export interface InputProps {
   id: string;
@@ -18,7 +17,7 @@ export const Input = (props: InputProps) => {
       variant="outlined"
       onChange={onChange}
       value={value}
-      className={"wam-input"}
+      sx={{ padding: "15px" }}
     />
   );
 };
