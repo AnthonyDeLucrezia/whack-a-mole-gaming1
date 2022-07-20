@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof InputText> = (args) => {
 
   return (
     <InputText
-      label="Enter somthing"
+      label="Enter something"
       id="input-id"
       onChange={onInputChange}
       key="btn-key"
