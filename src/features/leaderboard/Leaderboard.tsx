@@ -26,7 +26,7 @@ export const Leaderboard = () => {
       };
       dispatch(addPlayerToLeaderboardAsync(currentPlayer));
     }
-  }, [name, score]);
+  }, [name, score, dispatch]);
 
   const onRestart = () => {
     dispatch(restart());
