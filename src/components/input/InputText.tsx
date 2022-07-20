@@ -8,7 +8,7 @@ export interface InputProps {
   value: string;
 }
 
-export const Input = (props: InputProps) => {
+export const InputText = (props: InputProps) => {
   const { onChange, id, label, value } = props;
   return (
     <TextField

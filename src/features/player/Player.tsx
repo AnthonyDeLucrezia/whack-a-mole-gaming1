@@ -23,19 +23,21 @@ export const Player = () => {
 
   return (
     <div className="wam-player-name-container">
-      <Typography variant="h4">Whack a mole Game</Typography>
-      <Typography variant="h6">Enter your name to start</Typography>
-      <InputText
-        id="input-player-name"
-        label="Your name"
-        value={playerName}
-        onChange={onInputChange}
-      />
-      <Button
-        label="Start"
-        onClick={onStart}
-        disabled={!playerName || playerName === ""}
-      />
+      <div className="wam-player-name-form">
+        <Typography variant="h4">Whack a mole Game</Typography>
+        <Typography variant="h6">Enter your name to start</Typography>
+        <InputText
+          id="input-player-name"
+          label="Your name"
+          value={playerName}
+          onChange={onInputChange}
+        />
+        <Button
+          label="Start"
+          onClick={onStart}
+          disabled={!playerName || playerName === ""}
+        />
+      </div>
     </div>
   );
 };
