@@ -1,4 +1,4 @@
-import { List as MuiList } from "@mui/material";
+import { Divider, List as MuiList } from "@mui/material";
 import React from "react";
 import { ListItem, ListItemProps } from "./ListItem";
 
@@ -9,9 +9,15 @@ export interface ListProps {
 export const List = (props: ListProps) => {
   const { items } = props;
   return (
-    <MuiList>
+    <MuiList sx={{ width: "100%" }}>
       {items.map((x) => (
-        <ListItem primaryText={x.primaryText} secondaryText={x.secondaryText} />
+        <React.Fragment>
+          <ListItem
+            primaryText={x.primaryText}
+            secondaryText={x.secondaryText}
+          />
+          <Divider />
+        </React.Fragment>
       ))}
     </MuiList>
   );
