@@ -1,5 +1,5 @@
 import {  createSlice } from '@reduxjs/toolkit'
-import { createNewPlayersAsync, fetchPlayersAsync } from '../../api';
+import { createNewPlayersAsync } from '../../api';
 import { Player } from '../../models/app.models';
 
  export interface LeaderboardSliceState {

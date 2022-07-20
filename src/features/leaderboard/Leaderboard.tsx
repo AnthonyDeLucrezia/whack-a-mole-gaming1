@@ -38,7 +38,7 @@ export const Leaderboard = () => {
       <List
         items={
           players && players.length > 9
-            ? players.map((x, index) => ({
+            ? players.map((x) => ({
                 primaryText: x.name,
                 secondaryText: x.score.toString(),
               }))

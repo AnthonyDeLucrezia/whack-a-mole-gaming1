@@ -15,7 +15,7 @@ export const Grid = (props: GridProps) => {
 
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (event: any) => {
+  const handleMouseMove = (event: { pageX: number; pageY: number }) => {
     setCoords({
       x: event.pageX - 50,
       y: event.pageY - 50,
