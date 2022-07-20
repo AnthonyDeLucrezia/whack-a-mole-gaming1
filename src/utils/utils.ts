@@ -26,17 +26,3 @@ export const generateMoles = (nbrOfRows : number, nbrOfColumns:number): MoleProp
     }
     return arrToReturn;
   };
-
-  
-export const sortPlayer = (player1: Player, player2:Player): number => {
-  if (player1.score > player2.score) {
-      return 1;
-  }
-
-  if (player1.score < player2.score) {
-      return -1;
-  }
-
-  return 0;
-}
-
